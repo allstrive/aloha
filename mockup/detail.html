@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aloha - Photo Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="url(#paint0_linear)" stroke-width="2"/>
+                <path d="M8 12L11 15L16 9" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#6366f1"/>
+                        <stop offset="1" stop-color="#ec4899"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            Aloha
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="duplicates.html">Duplicates</a></li>
+                <li><a href="faces.html">Faces</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="detail-layout">
+        <div class="image-stage">
+            <a href="index.html" class="back-btn" title="Back to Dashboard">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <img id="mainImage" src="" alt="Detail View" draggable="false">
+            <div id="selectionBox" class="selection-box"></div>
+            <div id="contextMenu" class="context-menu">
+                <div class="context-menu-item" onclick="tagSelection()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Tag Person
+                </div>
+                <div class="context-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                    Tag Object
+                </div>
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>
+                    Details
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer; opacity: 0.5;">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="19" cy="12" r="1"></circle>
+                        <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                </h3>
+                <div class="metadata-grid">
+                    <div class="meta-label">Date</div>
+                    <div id="metaDate">--</div>
+                    
+                    <div class="meta-label">Location</div>
+                    <div id="metaLocation">--</div>
+                    
+                    <div class="meta-label">Resolution</div>
+                    <div>4032 x 3024</div>
+                    
+                    <div class="meta-label">Camera</div>
+                    <div>iPhone 14 Pro</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>
+                    Faces (2)
+                    <span style="font-size: 0.7em; color: var(--primary-color); cursor: pointer;">Scan</span>
+                </h3>
+                <div class="tag-cloud" id="facesList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>
+                    Tags
+                    <span style="font-size: 0.7em; color: var(--primary-color); cursor: pointer;">+ Add</span>
+                </h3>
+                <div class="tag-cloud" id="tagsList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="mock-data.js"></script>
+    <script src="detail.js"></script>
+</body>
+</html>
